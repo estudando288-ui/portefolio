@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Estudando-288 | Portefolio</title>
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header id="topo">
@@ -15,7 +17,7 @@
                 height="160"
             >
 
-            <h1>Estuando-288</h1>
+            <h1>Estudando-288</h1>
 
             <nav>           
                 <ul>
@@ -24,6 +26,19 @@
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
+
+            <!-- Sessão de seleção de tema -->
+            <div class="theme-selector">
+            <label for="themeSelect">Escolher tema:</label>
+
+            <select id="themeSelect">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="neon">Neon</option>
+                <option value="ocean">Ocean</option>
+            </select>
+        </div>
+
         </header>
         
         <main>
@@ -118,4 +133,5 @@
         </footer>
 
     </body>
+    <script src="theme.js"></script>
 </html>

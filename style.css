@@ -1,0 +1,152 @@
+
+/* ==========================
+   SELETOR DE TEMAS
+========================== */
+
+.theme-selector {
+    margin-top: 25px;
+}
+
+.theme-selector label {
+    color: white;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.theme-selector select {
+    padding: 10px 15px;
+    border: 2px solid #38bdf8;
+    border-radius: 8px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ==========================
+   TEMA LIGHT
+========================== */
+
+body[data-theme="light"] {
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #334155;
+    --heading: #101827;
+    --accent: #0284c7;
+    --border: #e2e8f0;
+    --header: #101827;
+    --footer: #101827;
+}
+
+/* ==========================
+   TEMA DARK
+========================== */
+
+body[data-theme="dark"] {
+    --background: #111827;
+    --surface: #1f2937;
+    --text: #d1d5db;
+    --heading: #f9fafb;
+    --accent: #60a5fa;
+    --border: #374151;
+    --header: #030712;
+    --footer: #030712;
+}
+
+/* ==========================
+   TEMA NEON
+========================== */
+
+body[data-theme="neon"] {
+    --background: #090b18;
+    --surface: #15132c;
+    --text: #e9fff9;
+    --heading: #00ffb3;
+    --accent: #00ffb3;
+    --border: #00ffb3;
+    --header: #090b18;
+    --footer: #090b18;
+}
+
+/* ==========================
+   TEMA OCEAN
+========================== */
+
+body[data-theme="ocean"] {
+    --background: #082f49;
+    --surface: #0c4a6e;
+    --text: #e0f2fe;
+    --heading: #bae6fd;
+    --accent: #38bdf8;
+    --border: #38bdf8;
+    --header: #082f49;
+    --footer: #082f49;
+}
+
+/* ==========================
+   APLICAÇÃO DOS TEMAS
+========================== */
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header#topo {
+    background: var(--header);
+    border-color: var(--accent);
+}
+
+header#topo h1 {
+    color: var(--heading);
+}
+
+main {
+    color: var(--text);
+}
+
+main section {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+main section h2,
+#percurso h3 {
+    color: var(--heading);
+    border-color: var(--accent);
+}
+
+main section p {
+    color: var(--text);
+}
+
+main section strong {
+    color: var(--accent);
+}
+
+#testeemunho article {
+    background: var(--background);
+    border-color: var(--accent);
+}
+
+#testeemunho blockquote {
+    color: var(--text);
+}
+
+#testeemunho aside {
+    color: var(--accent);
+}
+
+footer#final {
+    background: var(--footer);
+    border-color: var(--accent);
+}
+
+footer#final hr {
+    border-color: var(--border);
+}
+
+footer#final small {
+    color: var(--text);
+}
