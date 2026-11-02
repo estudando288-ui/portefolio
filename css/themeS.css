@@ -125,16 +125,16 @@ main section strong {
     color: var(--accent);
 }
 
-#testeemunho article {
+#testemunho article {
     background: var(--background);
     border-color: var(--accent);
 }
 
-#testeemunho blockquote {
+#testemunho blockquote {
     color: var(--text);
 }
 
-#testeemunho aside {
+#testemunho aside {
     color: var(--accent);
 }
 
