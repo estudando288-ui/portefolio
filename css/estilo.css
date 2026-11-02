@@ -5,6 +5,7 @@
 */
 /* Estilo para todo o header*/
 header#topo {
+    position: sticky;
     background: linear-gradient(135deg, #101827, #1e293b);
     color: #ffffff;
     padding: 35px 20px;
