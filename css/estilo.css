@@ -1,15 +1,117 @@
-/* 
-==========================
-   HEADER - CABEÇALHO
-========================== 
-*/
-/* Estilo para todo o header*/
+/* ==========================================================
+   ESTILO.CSS - Folha de estilos única (estilo + temas)
+   Substitui o antigo estilo.css e o style.css
+========================================================== */
+
+
+/* ==========================================================
+   1. TEMAS (variáveis de cor)
+   Para criar um tema novo, copia um bloco e muda as cores.
+========================================================== */
+
+/* Valores por defeito (igual ao tema Light) */
+:root,
+body[data-theme="light"] {
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --card: #f1f5f9;
+    --text: #334155;
+    --heading: #101827;
+    --accent: #0284c7;
+    --border: #e2e8f0;
+    --header: #101827;
+    --header-text: #ffffff;
+    --footer: #101827;
+    --footer-text: #e0e6ed;
+    --button-text: #101827;
+}
+
+body[data-theme="dark"] {
+    --background: #111827;
+    --surface: #1f2937;
+    --card: #111827;
+    --text: #d1d5db;
+    --heading: #f9fafb;
+    --accent: #60a5fa;
+    --border: #374151;
+    --header: #030712;
+    --header-text: #ffffff;
+    --footer: #030712;
+    --footer-text: #d1d5db;
+    --button-text: #030712;
+}
+
+body[data-theme="neon"] {
+    --background: #090b18;
+    --surface: #15132c;
+    --card: #0d0b20;
+    --text: #e9fff9;
+    --heading: #00ffb3;
+    --accent: #00ffb3;
+    --border: #00ffb3;
+    --header: #090b18;
+    --header-text: #e9fff9;
+    --footer: #090b18;
+    --footer-text: #e9fff9;
+    --button-text: #090b18;
+}
+
+body[data-theme="ocean"] {
+    --background: #082f49;
+    --surface: #0c4a6e;
+    --card: #082f49;
+    --text: #e0f2fe;
+    --heading: #bae6fd;
+    --accent: #38bdf8;
+    --border: #38bdf8;
+    --header: #082f49;
+    --header-text: #e0f2fe;
+    --footer: #082f49;
+    --footer-text: #e0f2fe;
+    --button-text: #082f49;
+}
+
+
+/* ==========================================================
+   2. BASE
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* links #percurso não ficam escondidos debaixo do header */
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* ==========================================================
+   3. HEADER (fixo no topo)
+========================================================== */
+
 header#topo {
-    background: linear-gradient(135deg, #101827, #1e293b);
-    color: #ffffff;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: var(--header);
+    color: var(--header-text);
     padding: 35px 20px;
     text-align: center;
-    border-bottom: 4px solid #38bdf8;
+    border-bottom: 4px solid var(--accent);
+    transition: padding 0.3s ease, background-color 0.3s;
 }
 
 /* Foto de perfil */
@@ -18,20 +120,22 @@ header#topo img {
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #38bdf8;
+    border: 4px solid var(--accent);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     margin-bottom: 15px;
+    transition: all 0.3s ease;
 }
 
 /* Nome */
 header#topo h1 {
-    font-family: Arial, sans-serif;
     font-size: 32px;
     margin: 10px 0 25px;
     letter-spacing: 1px;
+    color: var(--heading);
+    transition: all 0.3s ease;
 }
 
-/* Menu de navegação */
+/* Menu */
 header#topo nav ul {
     list-style: none;
     padding: 0;
@@ -42,11 +146,9 @@ header#topo nav ul {
     flex-wrap: wrap;
 }
 
-/* Links do menu */
 header#topo nav a {
-    color: #ffffff;
+    color: var(--header-text);
     text-decoration: none;
-    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
     padding: 10px 16px;
@@ -54,126 +156,277 @@ header#topo nav a {
     transition: 0.3s ease;
 }
 
-/* Efeito ao passar o rato */
 header#topo nav a:hover {
-    background-color: #38bdf8;
-    color: #101827;
+    background-color: var(--accent);
+    color: var(--button-text);
+}
+
+/* Seletor de tema */
+.theme-selector {
+    margin-top: 25px;
+}
+
+.theme-selector label {
+    color: var(--header-text);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.theme-selector select {
+    padding: 10px 15px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 14px;
 }
 
 
-/* ==========================
-   MAIN - CONTEÚDO PRINCIPAL
-========================== */
+/* ==========================================================
+   4. HEADER COMPACTO (ao rolar a página)
+   A classe "compacto" é adicionada pelo theme.js
+========================================================== */
+
+header#topo.compacto {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 8px 20px;
+    text-align: left;
+    border-bottom-width: 3px;
+}
+
+header#topo.compacto img {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    border-width: 2px;
+    box-shadow: none;
+}
+
+header#topo.compacto h1 {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 0;
+}
+
+header#topo.compacto nav ul {
+    gap: 8px;
+}
+
+header#topo.compacto nav a {
+    font-size: 14px;
+    padding: 6px 10px;
+}
+
+header#topo.compacto .theme-selector {
+    margin: 0;
+}
+
+header#topo.compacto .theme-selector label {
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+header#topo.compacto .theme-selector select {
+    padding: 5px 10px;
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   5. MAIN - CONTEÚDO PRINCIPAL
+========================================================== */
 
 main {
     max-width: 1100px;
     margin: 50px auto;
     padding: 0 25px;
-    font-family: Arial, sans-serif;
-    color: #334155;
+    color: var(--text);
     line-height: 1.8;
 }
 
-/* Todas as secções */
 main section {
-    background-color: #ffffff;
+    background-color: var(--surface);
     padding: 35px;
     margin-bottom: 35px;
     border-radius: 14px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Títulos principais das secções */
 main section h2 {
-    color: #101827;
+    color: var(--heading);
     font-size: 26px;
     margin-top: 0;
     margin-bottom: 20px;
-    border-bottom: 3px solid #38bdf8;
+    border-bottom: 3px solid var(--accent);
     padding-bottom: 10px;
     display: inline-block;
 }
 
-/* Parágrafos */
 main section p {
     font-size: 16px;
     margin-bottom: 15px;
     text-align: justify;
+    color: var(--text);
 }
 
-/* Texto em destaque */
 main section strong {
-    color: #0284c7;
+    color: var(--accent);
 }
 
-/* ==========================
-   O MEU PERCURSO
-========================== */
+main section a {
+    color: var(--accent);
+}
+
+
+/* ==========================================================
+   6. O MEU PERCURSO
+========================================================== */
 
 #percurso h3 {
-    color: #0284c7;
+    color: var(--accent);
     font-size: 20px;
     margin-top: 25px;
     margin-bottom: 12px;
 }
 
-/* ==========================
-   TESTEMUNHOS
-========================== */
 
-#testemunho {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
+/* ==========================================================
+   7. TESTEMUNHOS
+   Cada cartão usa --card e --text, por isso o texto
+   tem sempre contraste em qualquer tema.
+========================================================== */
 
-/* Título ocupa toda a largura */
-#testemunho h2 {
-    grid-column: 1 / -1;
-}
-
-/* Cartões de testemunhos */
 #testemunho article {
-    background-color: #f1f5f9;
-    border-left: 4px solid #38bdf8;
+    background-color: var(--card);
+    border-left: 4px solid var(--accent);
     padding: 20px;
     border-radius: 8px;
-    transition: 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
 }
 
-/* Efeito ao passar o rato */
 #testemunho article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.10);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
 }
 
-/* Citação */
 #testemunho blockquote {
     margin: 0;
-    color: #334155;
+    color: var(--text);
     font-style: italic;
 }
 
-/* Parágrafo da citação */
 #testemunho blockquote p {
     margin: 0;
     text-align: left;
 }
 
-/* Nome dos clientes */
+/* Nome do cliente (fica por baixo do cartão) */
 #testemunho aside {
     text-align: right;
-    color: #0284c7;
+    color: var(--accent);
     font-weight: bold;
     font-size: 14px;
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin: 8px 5px 22px;
 }
 
-/* ==========================
-   RESPONSIVIDADE
-========================== */
+
+/* ==========================================================
+   8. TABELA DE HORÁRIO (página Contato)
+========================================================== */
+
+#tabela-horario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#tabela-horario caption {
+    color: var(--heading);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#tabela-horario th,
+#tabela-horario td {
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    text-align: left;
+    color: var(--text);
+}
+
+#tabela-horario thead th {
+    background-color: var(--accent);
+    color: var(--button-text);
+}
+
+#tabela-horario tbody th {
+    color: var(--heading);
+}
+
+#tabela-horario tbody tr:nth-child(even) {
+    background-color: var(--card);
+}
+
+
+/* ==========================================================
+   9. FOOTER - RODAPÉ
+========================================================== */
+
+footer#final {
+    background: var(--footer);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 4px solid var(--accent);
+    transition: background-color 0.3s;
+}
+
+footer#final hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 25px;
+}
+
+footer#final a {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--button-text);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+footer#final a:hover {
+    background-color: var(--heading);
+    transform: translateY(-3px);
+}
+
+footer#final small {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--footer-text);
+}
+
+footer#final strong {
+    font-weight: normal;
+}
+
+
+/* ==========================================================
+   10. RESPONSIVIDADE
+========================================================== */
 
 @media (max-width: 650px) {
 
@@ -190,62 +443,13 @@ main section strong {
         font-size: 22px;
     }
 
-    #testemunho {
-        grid-template-columns: 1fr;
+    header#topo nav ul {
+        gap: 10px;
     }
 
-    #testemunho h2 {
-        grid-column: 1;
+    #tabela-horario th,
+    #tabela-horario td {
+        padding: 8px 10px;
+        font-size: 14px;
     }
-}
-
-/* ==========================
-   FOOTER - RODAPÉ
-========================== */
-
-footer#final {
-    background: #101827;
-    color: #cbd5e1;
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 50px;
-    border-top: 4px solid #38bdf8;
-    font-family: Arial, sans-serif;
-}
-
-/* Linha horizontal */
-footer#final hr {
-    border: none;
-    border-top: 1px solid #475569;
-    margin-bottom: 25px;
-}
-
-/* Link voltar ao topo */
-footer#final a {
-    display: inline-block;
-    background-color: #38bdf8;
-    color: #101827;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 6px;
-    transition: 0.3s ease;
-}
-
-/* Efeito do botão */
-footer#final a:hover {
-    background-color: #ffffff;
-    transform: translateY(-3px);
-}
-
-/* Copyright */
-footer#final small {
-    display: block;
-    margin-top: 20px;
-    font-size: 13px;
-    color: #e0e6ed;
-}
-
-footer#final strong {
-    font-weight: normal;
 }
