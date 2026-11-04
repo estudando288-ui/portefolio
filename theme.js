@@ -2,7 +2,7 @@
 // ==========================
 // TEMAS
 // ==========================
-const themeSelect = document.getElementById("themeSelect");
+const themeSelect = document.getElementById("seletor-tema");
 
 function changeTheme(theme) {
     document.body.setAttribute("data-theme", theme);
