@@ -1,6 +1,5 @@
 /* ==========================================================
    ESTILO.CSS - Folha de estilos única (estilo + temas)
-   Substitui o antigo estilo.css e o style.css
 ========================================================== */
 
 
@@ -23,7 +22,7 @@ body[data-theme="light"] {
     --header-text: #ffffff;
     --footer: #101827;
     --footer-text: #e0e6ed;
-    --button-text: #101827;
+    --button-text: #ffffff;
 }
 
 body[data-theme="dark"] {
@@ -82,7 +81,7 @@ body[data-theme="ocean"] {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px; /* links #percurso não ficam escondidos debaixo do header */
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -99,12 +98,10 @@ body {
 ========================================================== */
 
 header#topo {
-
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    top: 0;
     z-index: 1000;
     background: var(--header);
     color: var(--header-text);
@@ -299,8 +296,6 @@ main section a {
 
 /* ==========================================================
    7. TESTEMUNHOS
-   Cada cartão usa --card e --text, por isso o texto
-   tem sempre contraste em qualquer tema.
 ========================================================== */
 
 #testemunho article {
@@ -338,7 +333,108 @@ main section a {
 
 
 /* ==========================================================
-   8. TABELA DE HORÁRIO (página Contato)
+   8. FORMULÁRIO - VAMOS CONVERSAR
+========================================================== */
+
+#vamos-conversar form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+#vamos-conversar fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 20px 25px 25px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+#vamos-conversar legend {
+    padding: 0 10px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+#vamos-conversar label {
+    margin-top: 10px;
+    color: var(--heading);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#vamos-conversar input,
+#vamos-conversar select,
+#vamos-conversar textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: var(--surface);
+    color: var(--text);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#vamos-conversar textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#vamos-conversar input::placeholder,
+#vamos-conversar textarea::placeholder {
+    color: var(--text);
+    opacity: 0.5;
+}
+
+#vamos-conversar input:focus,
+#vamos-conversar select:focus,
+#vamos-conversar textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Botões */
+.botoes-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#vamos-conversar button {
+    padding: 12px 28px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#vamos-conversar button[type="submit"] {
+    background-color: var(--accent);
+    color: var(--button-text);
+}
+
+#vamos-conversar button[type="reset"] {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+#vamos-conversar button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==========================================================
+   9. TABELA DE HORÁRIO (página Contato)
 ========================================================== */
 
 #tabela-horario {
@@ -377,7 +473,7 @@ main section a {
 
 
 /* ==========================================================
-   9. FOOTER - RODAPÉ
+   10. FOOTER - RODAPÉ
 ========================================================== */
 
 footer#final {
@@ -425,7 +521,7 @@ footer#final strong {
 
 
 /* ==========================================================
-   10. RESPONSIVIDADE
+   11. RESPONSIVIDADE
 ========================================================== */
 
 @media (max-width: 650px) {
@@ -445,6 +541,14 @@ footer#final strong {
 
     header#topo nav ul {
         gap: 10px;
+    }
+
+    #vamos-conversar fieldset {
+        padding: 15px;
+    }
+
+    #vamos-conversar button {
+        width: 100%;
     }
 
     #tabela-horario th,

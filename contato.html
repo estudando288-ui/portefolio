@@ -29,14 +29,15 @@
 
             <!-- Sessão seleção de tema -->
             <div class="theme-selector">
-            <label for="themeSelect">Escolher tema:</label>
+                <label for="themeSelect">Escolher tema:</label>
 
-            <select id="seletor-tema">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="neon">Neon</option>
-                <option value="ocean">Ocean</option>
-            </select>
+                <select id="seletor-tema">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="neon">Neon</option>
+                    <option value="ocean">Ocean</option>
+                </select>
+            </div>
         </header>
 
         <main>
@@ -54,8 +55,52 @@
                 <h2>Vamos conversar?</h2>
                 <p>
                     Tens alguma dúvida, sugestão ou proposta de colaboração?
-                    Entra em contacto comigo. Será um prazer conversar contigo!
+                    Entra em contacto comigo através do formulário. Será um prazer conversar contigo!
                 </p>
+
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>A sua identificação</legend>
+
+                        <label for="nome-completo-vamos-conversar">Nome Completo</label>
+                        <input 
+                            id="nome-completo-vamos-conversar" 
+                            name="nome-completo-vamos-conversar" 
+                            type="text" 
+                            placeholder="Nome Completo">
+
+                        <label for="email-completo-vamos-conversar">email</label>
+                        <input 
+                            id="email-completo-vamos-conversar" 
+                            type="email" 
+                            placeholder="exemplos@gmail.com">
+
+                        <label for="seu-sexo">Género</label>
+                        <select name="seu-sexo" id="seu-sexo">
+                            <option value="" selected disabled>Escolhe uma opção</option>
+                            <option value="m">Masculino</option>
+                            <option value="f">Feminino</option>
+                            <option value="Outros">Prefiro não dizer</option>
+                        </select>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend></legend>
+                                                                        
+                        <label for="mensagem-vamos-conversar">Sua mensagem</label><br>
+                        <textarea 
+                            id="mensagem-vamos-conversar" 
+                            name="mensagem-vamos-conversar" 
+                            cols="30" 
+                            rows="10">
+                        </textarea>
+                        
+                    </fieldset>
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Limpar Formulário</button>
+                </form>
+
             </section>
 
              <!--Sessão Tabela de disponibilidade-->
