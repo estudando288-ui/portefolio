@@ -1,0 +1,114 @@
+/* =====================================
+   Design system: Variáveis
+===================================== */
+:root {
+    --background: #090b18;
+    --surface: #15132c;
+    --card: #0d0b20;
+    --text: #e9fff9;
+    --heading: #00ffb3;
+    --accent: #00ffb3;
+    --border: #00ffb3;
+    --header: #090b18;
+    --header-text: #e9fff9;
+    --footer: #090b18;
+    --footer-text: #e9fff9;
+    --button-text: #090b18;
+}
+
+/* =====================================
+   ÁREA PRINCIPAL DAS MÍDIAS
+===================================== */
+
+.midias {
+    display: grid;
+
+    /* vídeo maior, áudios mais estreitos */
+    grid-template-columns: 2fr 1fr;   
+    gap: 25px;
+
+    /* as duas boxes com a mesma altura */
+    align-items: stretch;             
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* =====================================
+   BOXES (VÍDEO E ÁUDIOS)
+===================================== */
+
+.box-video,
+.box-audios {
+    padding: 20px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 0 18px rgba(0, 255, 179, 0.15);
+}
+
+.box-audios {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* =====================================
+   TÍTULOS
+===================================== */
+
+.midias h2 {
+    margin: 0 0 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--heading);
+}
+
+/* =====================================
+   ITENS (sem caixa extra)
+===================================== */
+
+.vidio-doda,
+.som-mirafuturo,
+.Kaminhu-Klaru,
+.full-stack {
+    padding: 0;
+    background: none;
+}
+
+/* linha fina entre os áudios */
+.box-audios > div:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 255, 179, 0.25);
+}
+
+/* =====================================
+   VÍDEO E ÁUDIO
+===================================== */
+
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+audio {
+    display: block;
+    width: 100%;
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 800px) {
+    .midias {
+        /* uma box por baixo da outra */
+        grid-template-columns: 1fr;   
+        padding: 15px;
+    }
+}
